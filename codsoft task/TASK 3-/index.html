@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ececec; 
+        }
+
+        #calculator-container {
+            width: 300px;
+            margin: 20px auto;
+            background-color: #f0f0f0;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        #display {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+            margin-bottom: 10px;
+            background-color: #333; 
+            color: #fff; 
+            border: 1px solid #555; 
+            border-radius: 5px; 
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #fff; 
+            background-color: #888; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        input[type="button"]:hover {
+            background-color: #666; 
+        }
+
+        input[type="button"][value="C"], input[type="button"][value="DEL"], input[type="button"][value="="] {
+            background-color: #3498db; 
+        }
+
+        input[type="button"][value="C"]:hover, input[type="button"][value="DEL"]:hover, input[type="button"][value="="]:hover {
+            background-color: #2980b9; 
+        }
+
+        input[type="button"][value="."], input[type="button"][value="0"] {
+            grid-column: span 2; 
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator-container">
+        <div id="display">0</div>
+        <form>
+            <input type="button" onclick="appendToDisplay('1')" value="1">
+            <input type="button" onclick="appendToDisplay('2')" value="2">
+            <input type="button" onclick="appendToDisplay('3')" value="3">
+            <input type="button" onclick="appendToDisplay('+')" value="+">
+
+            <input type="button" onclick="appendToDisplay('4')" value="4">
+            <input type="button" onclick="appendToDisplay('5')" value="5">
+            <input type="button" onclick="appendToDisplay('6')" value="6">
+            <input type="button" onclick="appendToDisplay('-')" value="-">
+
+            <input type="button" onclick="appendToDisplay('7')" value="7">
+            <input type="button" onclick="appendToDisplay('8')" value="8">
+            <input type="button" onclick="appendToDisplay('9')" value="9">
+            <input type="button" onclick="appendToDisplay('*')" value="*">
+
+            <input type="button" onclick="appendToDisplay('0')" value="0">
+            <input type="button" onclick="appendToDisplay('.')" value=".">
+            <input type="button" onclick="appendToDisplay('')" value="">
+            <input type="button" onclick="appendToDisplay('/')" value="/">
+
+            <input type="button" onclick="clearDisplay()" value="C">
+            <input type="button" onclick="deleteLastCharacter()" value="DEL">
+            <input type="button" onclick="calculateResult()" value="=">
+        </form>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function appendToDisplay(value) {
+            display.textContent += value;
+        }
+
+        function clearDisplay() {
+            display.textContent = '';
+        }
+
+        function deleteLastCharacter() {
+            let currentDisplay = display.textContent;
+            display.textContent = currentDisplay.slice(0, -1);
+        }
+
+        function calculateResult() {
+            try {
+                let result = eval(display.textContent);
+                if (isNaN(result) || !isFinite(result)) {
+                    throw new Error('Invalid expression');
+                } else if (result === Infinity || result === -Infinity) {
+                    throw new Error('Division by zero');
+                }
+                display.textContent = result;
+            } catch (error) {
+                display.textContent = error.message;
+            }
+        }
+    </script>
+</body>
+</html>

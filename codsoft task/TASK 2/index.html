@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      top: 50px;
+      font-family: Arial, sans-serif;
+      background: url('image3.jpg') center/cover fixed;
+      display: flex;
+      height: 100vh;
+    }
+
+    .overlay {
+      background-color:black(255, 255, 255, 0.8); 
+      flex: 1;
+      display: flex;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      box-sizing: border-box;
+      position: relative;
+    }   
+
+    .highlight-text {
+      color:purple; 
+    }
+
+    .vertical-band {
+      width: 40px; 
+      height: 120%;
+      background-color: blue-yellow;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 280px; 
+      margin-right: -90px; 
+    }
+
+    .circle{
+      width: 380px; 
+      height: 380px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 150px; 
+      z-index: 1; 
+    }
+
+    .image-container {
+      width: 100%;
+      height: 100%;
+      background: url('image.jpg') center/cover;
+      border-radius: 50%; 
+      border: 8px solid whitesmoke;
+      box-sizing: border-box; 
+    }
+
+    .social-icons {
+      position: absolute;
+      bottom: 20px; 
+      right: 20px; 
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .social-icon {
+      width: 25px; 
+      height: 25px; 
+      margin-left: 3px; 
+    }
+
+    .top-buttons {
+      position: absolute;
+      top: 20px; 
+      right: 20px;
+      display: flex;
+    }
+
+    .top-button {
+      background-color: blur; 
+      color: white;
+      border: none;
+      padding: 8px; 
+      font-size: 14px; 
+      cursor: pointer;
+      margin-left: 8px;
+    }
+
+    .contact-info {
+      position: absolute;
+      bottom: 20px;
+      left: 20px; 
+      text-align: left;
+    }
+
+    .contact-button {
+      background-color:whitesmoke; 
+      color: blueviolet;
+      border: none;
+      padding: 8px; 
+      font-size: 14px; 
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="content left-content">
+      <h1 style="font-size: 60px; color:white(68, 0, 255);">FusionForge</h1> 
+      <h3 style="font-size: 30px;">Where creativity meets technology. <span class="highlight-text">We innovate digital solutions that transcend</span> boundaries.</h3> 
+      <p style="font-size: 18px;"> 
+        Using FusionForge, you can enter the cutting edge of technology. Explore our cutting-edge web development, virtual assistants powered by AI, Web3 environments, and comprehensive IT services. Say goodbye to complicated procedures and hello to the ideal hub for a foolproof, future-proof online presence, where innovation meets simplicity. Come with me as we set out on a remarkable creative adventure. 
+      </p>
+      <div class="contact-info">
+        <p>Phone: +91 8956734892 </p> 
+        <p>Email: techfusion@email.com</p> 
+      </div>
+      <button class="contact-button">Contact Us</button> 
+    </div>
+    <div class="content">
+      <div class="vertical-band"></div>
+      <div class="circle">
+        <div class="image-container"></div>
+      </div>
+      <div class="social-icons">
+        <img class="social-icon" src="facebook.jpg" alt="Facebook">
+        <img class="social-icon" src="telegram1.jpg" alt="Telegram">
+        <img class="social-icon" src="1twitter.jpg" alt="Twitter">
+        <img class="social-icon" src="instagram.jpeg" alt="Instagram">
+      </div>
+      <div class="top-buttons">
+        <button class="top-button" style="background-color: black;">Home</button>
+        <button class="top-button" style="background-color: black;">About</button> 
+        <button class="top-button" style="background-color: black;">Services</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
